@@ -4,14 +4,14 @@
 
 FROM node:16-alpine
 
-WORKDIR /app/backend
+WORKDIR /app-backend
 
-COPY package.json /app/backend/
+COPY package.json ./
 
 RUN npm install
 
-COPY . /app/backend/
+COPY . .
 
-EXPOSE 3001
+# RUN npm run predev
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
