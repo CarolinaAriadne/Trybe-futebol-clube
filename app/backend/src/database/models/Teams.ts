@@ -1,9 +1,9 @@
-import { DataTypes, Model } from "sequelize/types";
-import db from ".";
+import { DataTypes, Model } from 'sequelize';
+import db from '.';
 
 class Team extends Model {
   public id: number;
-  public team_name: string;
+  public teamName: string;
 }
 
 Team.init(
@@ -13,15 +13,15 @@ Team.init(
       autoIncrement: true,
       primaryKey: true,
     },
-   team_name: {
+    teamName: {
       type: DataTypes.STRING,
     },
   },
   {
     underscored: true,
     sequelize: db,
-    modelName: "teams",
+    modelName: 'teams',
     timestamps: false,
-  }
+  },
 );
 export default Team;

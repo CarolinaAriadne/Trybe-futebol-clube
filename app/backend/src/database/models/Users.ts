@@ -1,5 +1,5 @@
-import { DataTypes, Model } from "sequelize/types";
-import db from ".";
+import { DataTypes, Model } from 'sequelize';
+import db from '.';
 
 class User extends Model {
   public id: number;
@@ -32,8 +32,8 @@ User.init(
   {
     underscored: true,
     sequelize: db,
-    modelName: "users",
+    modelName: 'users',
     timestamps: false,
-  }
+  },
 );
 export default User;

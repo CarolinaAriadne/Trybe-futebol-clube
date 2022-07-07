@@ -1,29 +1,21 @@
-import User from "../interfaces/Users";
-import Users from "../database/models/Users";
-import generateJwt from "../utils/generateJWT";
+import IUser from '../interfaces/Users';
+import Users from '../database/models/Users';
+import token from '../utils/token';
 
-
-const erroHandler = (status: any, message: any) => ({
-  status,
-  message,
-});
+// const erroHandler = (status: number, message: string) => ({
+//   status,
+//   message,
+// });
 
 export default class UserService {
-  public createUser: Users;
-
-  constructor() {
-    this.createUser = new Users();
-  }
-
-  public async createUserService(user: User) {
+  public createUserService = async (user: IUser) => {
     const user2 = await Users.findOne({ where: { email: user.email } });
-    if (user.password.length > 6) {
-    }
-    await Users.create(user);
-    
-    return generateJwt(user2);
 
-  }
+    if (user2 !== null) {
+      const returnToken = token(user2);
+      return returnToken;
+    }
+  };
 }
 
 export { UserService };

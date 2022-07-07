@@ -1,7 +1,7 @@
-interface User {
-    id?: number;
-    email: string;
-    password: string;
-  }
-    
-  export default User;
+interface IUser {
+  id?: number;
+  email: string;
+  password: string;
+}
+
+export default IUser;

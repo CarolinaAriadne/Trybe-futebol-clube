@@ -1,13 +1,13 @@
-import { DataTypes, Model } from "sequelize/types";
-import db from ".";
+import { DataTypes, Model } from 'sequelize';
+import db from '.';
 
 class Matche extends Model {
   public id: number;
-  public home_team: string;
-  public home_team_goals: string;
-  public away_team: string;
-  public away_team_goals: string;
-  public in_progress: boolean;
+  public homeTeam: string;
+  public homeTeamGoals: string;
+  public awayTeam: string;
+  public awayTeamGoals: string;
+  public inProgress: boolean;
 }
 
 Matche.init(
@@ -17,27 +17,27 @@ Matche.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    home_team: {
+    homeTeam: {
       type: DataTypes.STRING,
     },
-    home_team_goals: {
+    homeTeamGoals: {
       type: DataTypes.STRING,
     },
-    away_team: {
+    awayTeam: {
       type: DataTypes.STRING,
     },
-    away_team_goals: {
+    awayTeamGoals: {
       type: DataTypes.STRING,
     },
-    in_progresss: {
+    inProgress: {
       type: DataTypes.BOOLEAN,
     },
   },
   {
     underscored: true,
     sequelize: db,
-    modelName: "matches",
+    modelName: 'matches',
     timestamps: false,
-  }
+  },
 );
 export default Matche;
