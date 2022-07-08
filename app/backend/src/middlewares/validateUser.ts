@@ -1,12 +1,14 @@
 import { Request, Response, NextFunction } from 'express';
 import * as joi from 'joi';
 
-const validateEmail: joi.ObjectSchema = joi.object({
+// .allow('')
+
+const validateEmail = joi.object({
   email: joi.string()
     .email()
     .required()
     .messages({
-      'any.required': '"email" must be a valid email',
+      'string.empty': 'All fields must be filled',
     }),
 });
 
@@ -15,7 +17,7 @@ const validatePassword = joi.object({
     .required()
     .min(7)
     .messages({
-      'string.min': '"password length must be at least 6 characters long',
+      'string.empty': 'All fields must be filled',
     }),
 });
 

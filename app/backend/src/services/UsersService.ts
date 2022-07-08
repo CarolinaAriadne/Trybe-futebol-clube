@@ -2,10 +2,12 @@ import IUser from '../interfaces/Users';
 import User from '../database/models/Users';
 import token from '../utils/token';
 
-// const erroHandler = (status: number, message: string) => ({
-//   status,
-//   message,
-// });
+const erroHandler = (status: number, message: string) => ({
+  status,
+  message,
+});
+
+// const errorMessage = { code: 400, message: 'All fields must be filled' };
 
 export default class UserService {
   public createTokenService = async (user: IUser) => {
