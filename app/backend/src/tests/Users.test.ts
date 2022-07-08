@@ -26,9 +26,10 @@ describe('Users', () => {
         it('Success request to POST /login', async () => {
             chaiHttpResponse = await chai.request(app)
             .post('/login')
-            .send({login: })
+            .send()
 
             expect(chaiHttpResponse).to.be.equal(201);
+            expect(chaiHttpResponse.body).to.be.eql('alo')
         });
     });
 });
