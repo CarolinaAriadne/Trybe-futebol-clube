@@ -1,8 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import * as joi from 'joi';
 
-// .allow('')
-
 const validateEmail = joi.object({
   email: joi.string()
     .email()
