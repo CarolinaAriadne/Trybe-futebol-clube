@@ -9,9 +9,9 @@ class UserController {
     this.createUser = new UserService();
   }
 
-  public createUserController = async (req: Request, res: Response) => {
+  public createTokenController = async (req: Request, res: Response) => {
     const user: User = req.body;
-    const token = await this.createUser.createUserService(user);
+    const token = await this.createUser.createTokenService(user);
     res.status(200).json({ token });
   };
 }

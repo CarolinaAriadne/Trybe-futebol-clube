@@ -8,6 +8,6 @@ const router = Router();
 
 const usersController = new Users();
 
-router.post('/login', validEmail, validPassword, usersController.createUserController);
+router.post('/login', validEmail, validPassword, usersController.createTokenController);
 
 export default router;

@@ -1,5 +1,5 @@
 import IUser from '../interfaces/Users';
-import Users from '../database/models/Users';
+import User from '../database/models/Users';
 import token from '../utils/token';
 
 // const erroHandler = (status: number, message: string) => ({
@@ -8,9 +8,11 @@ import token from '../utils/token';
 // });
 
 export default class UserService {
-  public createUserService = async (user: IUser) => {
-    const user2 = await Users.findOne({ where: { email: user.email } });
-    // verificar exclude, pra parar de aparecer password
+  public createTokenService = async (user: IUser) => {
+    const user2 = await User.findOne({
+      where: { email: user.email },
+      attributes: { exclude: ['password'] },
+    });
 
     if (user2 !== null) {
       const returnToken = token(user2);
