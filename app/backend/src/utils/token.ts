@@ -3,10 +3,11 @@ import Users from '../interfaces/Users';
 
 const jwtSecret = process.env.JWT_SECRET || 'mysecret';
 
-console.log(process.env.JWT_SECRET);
-
 const token = (user: Users) => {
-  const generateToken = jwt.sign({ user }, jwtSecret);
+  const generateToken = jwt.sign({ user }, jwtSecret, { // se der problema token, tirar objeto e infos expi e algoti
+    expiresIn: '45d',
+    algorithm: 'HS256',
+  });
   return generateToken;
 };
 
