@@ -51,7 +51,7 @@ describe.only(getRequirement(3), () => {
 
     await page.waitForTimeout(puppeteerDefs.pause.brief);
 
-    console.log(jwtSecret);
+   
     expect(
       !!jwt.verify(token, jwtSecret),
     ).toEqual(true);
