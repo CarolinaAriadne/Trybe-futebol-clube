@@ -61,5 +61,14 @@ describe('Users', () => {
       expect(chaiHttpResponse.status).to.be.equal(400);
       expect(chaiHttpResponse.body).to.be.deep.equal({message: 'All fields must be filled'})
     })
+    it('Email invalid', async () => {
+      chaiHttpResponse = await chai
+      .request(app)
+      .post('/login')
+      .send({email: 'seique@seique.com', password: '1234567'});
+
+      expect(chaiHttpResponse.status).to.be.equal(401);
+      expect(chaiHttpResponse.body).to.be.deep.equal({message: 'Incorrect email or password' })
+    })
   });
 });
