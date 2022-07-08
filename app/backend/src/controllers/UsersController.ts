@@ -12,6 +12,7 @@ class UserController {
   public createTokenController = async (req: Request, res: Response) => {
     const user: User = req.body;
     const token = await this.createUser.createTokenService(user);
+    console.log(token, 'token controller')
     res.status(200).json({ token });
   };
 }

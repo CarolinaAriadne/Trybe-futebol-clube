@@ -7,19 +7,25 @@ const erroHandler = (status: number, message: string) => ({
   message,
 });
 
-// const errorMessage = { code: 400, message: 'All fields must be filled' };
-
 export default class UserService {
   public createTokenService = async (user: IUser) => {
+
+    const verifyEmail = /\S+@\S+\.\S+/;
+    const validEmail = verifyEmail.test(user.email);
+
     const user2 = await User.findOne({
       where: { email: user.email },
       attributes: { exclude: ['password'] },
     });
 
-    if (user2 !== null) {
+    if (user2 !== null && validEmail) {
       const returnToken = token(user2);
+      console.log(returnToken, 'returnToken service')
       return returnToken;
     }
+    console.log('passei aqui, erro 401')
+    throw erroHandler(401, 'Incorrect email or password')
+    
   };
 }
 
