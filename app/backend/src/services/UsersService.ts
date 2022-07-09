@@ -23,6 +23,9 @@ export default class UserService {
     const returnToken = token(user2);
     return returnToken;
   };
+  // public returnCorrectData = async (user: IUser, req: Request, res: Response, next: NextFunction) => {
+   
+  // }
 }
 
 export { UserService };

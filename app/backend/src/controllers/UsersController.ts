@@ -1,18 +1,19 @@
 import { NextFunction, Request, Response } from 'express';
 import User from '../interfaces/Users';
 import { UserService } from '../services/UsersService';
+import IUser from '../interfaces/Users';
 
 class UserController {
-  public createUser: UserService;
+  public login: UserService;
 
   constructor() {
-    this.createUser = new UserService();
+    this.login = new UserService();
   }
 
   public createTokenController = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const user: User = req.body;
-      const token = await this.createUser.createTokenService(user);
+      const token = await this.login.createTokenService(user);
       res.status(200).json({ token });
     } catch (err) {
       next(err);
