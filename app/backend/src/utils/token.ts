@@ -9,6 +9,7 @@ const token = (user: Users) => {
     algorithm: 'HS256',
   });
   return generateToken;
+
 };
 
 export default token;

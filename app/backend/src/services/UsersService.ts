@@ -7,7 +7,7 @@ import token from '../utils/token';
 export default class UserService {
   public createTokenService = async (user: IUser) => {
     const user2 = await User.findOne({
-      where: { email: user.email },
+      where: { email: user.email }
     });
 
     if (!user2) {
@@ -23,9 +23,6 @@ export default class UserService {
     const returnToken = token(user2);
     return returnToken;
   };
-  // public returnCorrectData = async (user: IUser, req: Request, res: Response, next: NextFunction) => {
-   
-  // }
 }
 
 export { UserService };
