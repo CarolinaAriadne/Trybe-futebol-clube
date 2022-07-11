@@ -14,5 +14,6 @@ const teamsController = new Teams();
 router.post('/login', validEmail, validPassword, usersController.createTokenController);
 router.get('/login/validate', verifyToken);
 router.get('/teams', teamsController.getAllTeamsController);
+router.get('/teams/:id', teamsController.getTeamByIdController);
 
 export default router;
