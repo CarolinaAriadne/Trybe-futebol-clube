@@ -7,7 +7,7 @@ import token from '../utils/token';
 export default class UserService {
   public createTokenService = async (user: IUser) => {
     const user2 = await User.findOne({
-      where: { email: user.email }
+      where: { email: user.email },
     });
 
     if (!user2) {

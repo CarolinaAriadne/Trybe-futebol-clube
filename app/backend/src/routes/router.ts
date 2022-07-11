@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import Matches from '../controllers/MathesController';
 import Users from '../controllers/UsersController';
 import Teams from '../controllers/TeamsController';
 
@@ -10,10 +11,12 @@ const router = Router();
 
 const usersController = new Users();
 const teamsController = new Teams();
+const matchesController = new Matches();
 
 router.post('/login', validEmail, validPassword, usersController.createTokenController);
 router.get('/login/validate', verifyToken);
 router.get('/teams', teamsController.getAllTeamsController);
 router.get('/teams/:id', teamsController.getTeamByIdController);
+router.get('/matches', matchesController.getAllMatchesController);
 
 export default router;
