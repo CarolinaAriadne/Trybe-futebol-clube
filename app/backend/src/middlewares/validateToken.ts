@@ -3,9 +3,7 @@ import CustomError from '../interfaces/custom.error';
 import * as  jwt from 'jsonwebtoken';
 import IDecode from '../interfaces/decode';
 
-
 const jwtSecret = process.env.JWT_SECRET || 'mysecret';
-
 
 const verifyToken = (req: Request, res: Response, next: NextFunction) => {
 
