@@ -14,19 +14,19 @@ class TeamController {
         const teams = await this.teams.getAllTeamsService();
         res.status(200).json(teams);
       }catch(err){
-          next(err);
-      }
+        next(err);
+    	}
   };
 
   public getTeamByIdController = async (req: Request, res: Response, next: NextFunction) => {
-    try{
+     try{
         const { id } = req.params;
         const team = await this.teams.getTeamByIdService(id);
         return res.status(200).json(team);
 
-    }catch(err){
-        next(err);
-    }
+      }catch(err){
+      	next(err);
+    	}
   }
 }
 
