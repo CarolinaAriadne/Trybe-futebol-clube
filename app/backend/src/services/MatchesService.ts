@@ -3,6 +3,7 @@ import Matches from '../database/models/Matches';
 import Team from '../database/models/Teams';
 import IMatche from '../interfaces/Matches';
 import CustomError from '../interfaces/custom.error';
+import Matche from '../database/models/Matches';
 
 export default class MatcheService {
   getAllMatchesService = async () => {
@@ -16,14 +17,12 @@ export default class MatcheService {
   };
 
   createMatcheService = async (matche: IMatche) => {
-    // const matcheHome = await Matches.findOne( {where:
-    //   {matche. }});
-    //   const matcheAway = await Matches.findOne({where:
-    //   {id: 'awayTeam'}});
+    const matcheHome = await Matches.findByPk(matche.homeTeam);
+    const matcheAway = await Matche.findByPk(matche.awayTeam);
 
-    // if(matcheHome === matcheAway){
-    //   throw new CustomError(401, 'It is not possible to create a match with two equal teams!');
-    // }
+    if (!matcheHome || !matcheAway) {
+      throw new CustomError(404, 'There is no team with such id!');
+    }
 
     if (matche.homeTeam === matche.awayTeam) {
       throw new CustomError(401, 'It is not possible to create a match with two equal teams');
