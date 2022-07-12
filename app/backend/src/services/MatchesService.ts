@@ -14,12 +14,14 @@ export default class MatcheService {
   };
  createMatcheService = async (matche: IMatche) => {
 
-  let matche2 = {...matche, inProgress: true};
+    const {homeTeam, homeTeamGoals, awayTeam, awayTeamGoals} = matche;
 
-  const matches = await Matches.create(
-    {
-      matche2,
-    });
+    const matches = await Matches.create(
+    
+    {homeTeam, homeTeamGoals, awayTeam, awayTeamGoals, inProgress: true}
+  );
+  // console.log(matches, 'matches')
+
     return matches;
   }
 }

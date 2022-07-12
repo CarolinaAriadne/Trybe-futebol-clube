@@ -19,10 +19,12 @@ class MatcheController {
     }
   };
   public createMatcheController = async (req: Request, res: Response, next: NextFunction) => {
+    console.log('aqui')
     try{
       const matche: IMatche = req.body;
+      console.log('body', matche);
       const createdMatche = await this.matches.createMatcheService(matche);
-      res.status(201).json({createdMatche});
+      res.status(201).json(createdMatche);
     }catch(err){
       next(err);
     }

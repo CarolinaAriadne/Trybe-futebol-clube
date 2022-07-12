@@ -17,9 +17,8 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
 
     const { user } = decoded as IDecode;
 
-    res.status(200).json({ role: user.role });
-   res.end(); // ou next?
-  //   console.log({ role: user.role }, 'role: alguma coisa');
+    req.body.user = user;
+    next();
   } catch (err) {
     next(err);
   }
