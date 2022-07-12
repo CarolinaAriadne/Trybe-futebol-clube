@@ -41,7 +41,7 @@ describe('Users', () => {
         .send({ email: 'seiquela@seiquela.com', password: '1234567' });
 
       expect(chaiHttpResponse.status).to.be.equal(200);
-          expect(chaiHttpResponse.body).to.be.eql({token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc'});
+      expect(chaiHttpResponse.body).to.be.eql({token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NTI3MTg5fQ.XS_9AA82iNoiVaASi0NtJpqOQ_gHSHhxrpIdigiT-fc'});
     });
     it('Bad request - email empty', async () => {
       chaiHttpResponse = await chai 

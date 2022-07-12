@@ -18,5 +18,6 @@ router.get('/login/validate', verifyToken);
 router.get('/teams', teamsController.getAllTeamsController);
 router.get('/teams/:id', teamsController.getTeamByIdController);
 router.get('/matches', matchesController.getAllMatchesController);
+router.post('/matches', verifyToken, matchesController.createMatcheController);
 
 export default router;

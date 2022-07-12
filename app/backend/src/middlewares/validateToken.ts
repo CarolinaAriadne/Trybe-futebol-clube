@@ -13,12 +13,13 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     }
 
     const decoded = jwt.verify(authorization, jwtSecret);
-    console.log(decoded, 'decoded');
+    // console.log(decoded, 'decoded');
 
     const { user } = decoded as IDecode;
 
     res.status(200).json({ role: user.role });
-    console.log({ role: user.role }, 'role: alguma coisa');
+   res.end(); // ou next?
+  //   console.log({ role: user.role }, 'role: alguma coisa');
   } catch (err) {
     next(err);
   }
