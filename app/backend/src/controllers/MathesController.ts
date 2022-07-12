@@ -8,7 +8,7 @@ class MatcheController {
 
   constructor() {
     this.matches = new MatchesService();
-  }
+  };
 
   public getAllMatchesController = async (_req: Request, res: Response, next: NextFunction) => {
     try {
@@ -16,19 +16,28 @@ class MatcheController {
       res.status(200).json(matches);
     } catch (err) {
       next(err);
-    }
+    };
   };
   public createMatcheController = async (req: Request, res: Response, next: NextFunction) => {
-    console.log('aqui')
+    // console.log('aqui')
     try{
       const matche: IMatche = req.body;
-      console.log('body', matche);
+      // console.log('body', matche);
       const createdMatche = await this.matches.createMatcheService(matche);
       res.status(201).json(createdMatche);
     }catch(err){
       next(err);
+    };
+  };
+  public updateStatusMatche = async (req: Request, res: Response, next: NextFunction) => {
+    try{
+      const { id } = req.params;
+      const matcheUpdated = await this.matches.updateStatusMatche(id)
+      res.status(200).json(matcheUpdated);
+    }catch(err){
+      next(err);
     }
   }
-}
+};
 
 export default MatcheController;
