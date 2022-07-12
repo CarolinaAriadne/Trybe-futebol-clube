@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
+import * as jwt from 'jsonwebtoken';
 import { UserService } from '../services/UsersService';
 import IUser from '../interfaces/Users';
 import IDecode from '../interfaces/decode';
-import * as jwt from 'jsonwebtoken';
 
 const jwtSecret = process.env.JWT_SECRET || 'mysecret';
 
@@ -22,14 +22,15 @@ class UserController {
       next(err);
     }
   };
+
   public loginController = async (req: Request, res: Response, next: NextFunction) => {
-    try{
+    try {
       const { user } = req.body;
       res.status(200).json({ role: user.role });
-    }catch(err){
-      next(err)
+    } catch (err) {
+      next(err);
     }
-  }
+  };
 }
 
 export default UserController;

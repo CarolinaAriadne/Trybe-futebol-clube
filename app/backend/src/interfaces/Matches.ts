@@ -1,9 +1,9 @@
 interface IMatche{
     id?: number;
-    homeTeam: string;
-    homeTeamGoals: string;
-    awayTeam: string;
-    awayTeamGoals: string;
+    homeTeam: number;
+    homeTeamGoals: number;
+    awayTeam: number;
+    awayTeamGoals: number;
     inProgress?: boolean;
 }
 
