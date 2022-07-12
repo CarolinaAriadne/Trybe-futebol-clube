@@ -13,14 +13,13 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
     }
 
     const decoded = jwt.verify(authorization, jwtSecret);
-    // console.log(decoded, 'decoded');
 
     const { user } = decoded as IDecode;
 
     req.body.user = user;
     next();
-  } catch (err) {
-    next(err);
+  } catch (err: any) {
+    next({status:401, message:'Token must be a valid token'});
   }
 };
 

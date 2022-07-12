@@ -34,7 +34,6 @@ export default class MatcheService {
 
       { homeTeam, homeTeamGoals, awayTeam, awayTeamGoals, inProgress: true },
     );
-    // console.log(matches, 'matches')
 
     return matches;
   };
