@@ -1,5 +1,5 @@
 interface ITeam{
-    id?: number,
-    teamName: string,
+  id?: number,
+  teamName: string,
 }
 export default ITeam;

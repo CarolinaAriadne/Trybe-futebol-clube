@@ -1,4 +1,4 @@
-import {  DataTypes, Model } from 'sequelize';
+import { DataTypes, Model } from 'sequelize';
 import Teams from './Teams';
 import db from '.';
 
@@ -39,14 +39,21 @@ Matche.init(
     sequelize: db,
     modelName: 'matches',
     timestamps: false,
-  });
+  },
+);
 
-  Matche.belongsTo(Teams,{
-    foreignKey: 'homeTeam', as: 'teamHome'
-  });
-  Matche.belongsTo(Teams,{
-    foreignKey: 'awayTeam', as: 'teamAway'
-  });
+Matche.belongsTo(Teams, {
+  foreignKey: 'homeTeam', as: 'teamHome',
+});
+Matche.belongsTo(Teams, {
+  foreignKey: 'awayTeam', as: 'teamAway',
+});
 
+Teams.hasMany(Matche, {
+  foreignKey: 'homeTeam', as: 'matchesHome',
+});
+Teams.hasMany(Matche, {
+  foreignKey: 'awayTeam', as: 'matchesAway',
+});
 
 export default Matche;
