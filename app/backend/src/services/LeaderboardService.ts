@@ -5,14 +5,16 @@ import Matches from '../database/models/Matches';
 
 export default class LeatherBoardService {
   public homeTeamRankingService = async () => {
-    const ola = await Matches;
+    const quantifyGoals = await Matches.findAll({ attributes: { include: ['homeTeamGoals',
+      'awayTeamGoals'],
+    exclude: ['id', 'homeTeam', 'awayTeam', 'inProgress'] } });
 
-    // const teams = await Teams.findAll({ attributes: { include: [['team_name', 'name']],
-    //   exclude: ['id', 'teamName'] } });
-    // return teams;
+    const ola = quantifyGoals.reduce((object) => {
+      if (object.homeTeamGoals > object.awayTeamGoals) {
 
-    // const insertKeyTotalPoints = teams.map((team) => {
-    //   team.totalPoints = Matches.findAll()
-    // });
+      }
+
+      return ola;
+    }, 0);
   };
 }
