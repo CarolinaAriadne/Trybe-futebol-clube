@@ -1,4 +1,5 @@
 interface IMatche{
+  [x: string]: any;
   id?: number;
   homeTeam: number;
   homeTeamGoals: number;
