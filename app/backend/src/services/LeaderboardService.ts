@@ -8,6 +8,7 @@ import Matches from '../database/models/Matches';
 export default class LeatherBoardService {
   private teams: Teams[];
   private matches: Matches[];
+  private matchesByPk: Matches [];
   // totalPoints: number;
   // totalGames: number;
   // totalVictories: number; // caso a interface seja implementada
@@ -24,6 +25,7 @@ export default class LeatherBoardService {
     // where: { inProgress: false } });
     this.teams = await Teams.findAll();
     this.matches = await Matches.findAll();
+    this.matchesByPk = await Matches.findByPk();
 
     // const totalVictories: any = quantifyGoals.reduce((accumulator: any, actualValue: any) => {
     //   if (actualValue.homeTeamGoals > actualValue.awayTeamGoals) {
@@ -39,7 +41,7 @@ export default class LeatherBoardService {
 
   public totalVictories = (matche: Matches[]): number => matche.reduce((acc, actual) => {
     if (actual.homeTeamGoals > actual.awayTeamGoals) {
-      return acc + 3;
+      return acc + 1;
     }
     return acc;
   }, 0);
@@ -53,4 +55,6 @@ export default class LeatherBoardService {
 
   public totalPoints = (matche: Matches[]) => this.totalVictories(matche)
   * 3 + this.totalDraws(matche);
+
+  public totalGames = (matche: Matches[]) => matche.length;
 }
