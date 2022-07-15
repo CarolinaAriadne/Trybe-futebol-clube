@@ -1,3 +1,5 @@
+// import ILeatherBoard from '../interfaces/Leaderboard';
+
 function goalsFavor(matchesHome:any) {
   return matchesHome.reduce((acc:any, curr:any) => acc + curr.homeTeamGoals, 0);
 }
@@ -9,7 +11,6 @@ function goalsOwn(matchesHome:any) {
 function totalPoints(matchesHome:any) {
   return matchesHome.reduce((acc:any, curr:any) => {
     let contador = acc;
-    // console.log(JSON.parse(JSON.stringify(team)));
     if (curr.homeTeamGoals > curr.awayTeamGoals) contador += 3;
     if (curr.homeTeamGoals === curr.awayTeamGoals) contador += 1;
     return contador;
