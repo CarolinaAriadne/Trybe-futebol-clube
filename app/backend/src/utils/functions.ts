@@ -44,4 +44,5 @@ function totalLosses(matchesHome:any) {
   }, 0);
 }
 
-export { goalsFavor, goalsOwn, totalPoints, totalGames, totalVictores, totalDraws, totalLosses };
+export { goalsFavor, goalsOwn, totalPoints, totalGames,
+  totalVictores, totalDraws, totalLosses };
