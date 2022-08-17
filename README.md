@@ -4,4 +4,6 @@ Desenvolvimento utilizando arquitetura de software (modelo MSC), TypeScript, Seq
 
 A API a ser construída é um sistema informativo sobre partidas e classificações de futebol.
 
+Foram realizados testes unitários da aplicação.
+
 Ademais, a aplicação está utilizando containers por meio do Docker.
