@@ -1,4 +1,4 @@
-Habilidades desenvolvidas no projeto:
+Habilidades compostas no projeto:
 
 Desenvolvimento utilizando arquitetura de software (modelo MSC), TypeScript, Sequelize, POO e banco de dados MySQL para o gerenciamento de dados. 
 
